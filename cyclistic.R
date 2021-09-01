@@ -21,10 +21,12 @@ sep<-read_csv("Desktop/202009-divvy-tripdata.csv")
 oct<-read_csv("Desktop/202010-divvy-tripdata.csv")
 nov<-read_csv("Desktop/202011-divvy-tripdata.csv")
 dec<-read_csv("Desktop/202012-divvy-tripdata.csv")
+
 ##combines the data together through rbind
 Cyclistic_rides<-rbind(q1,apr,may,jun,jul,aug,sep,oct,nov,dec)
 Cyclistic_rides<-remove_empty(Cyclistic_rides,which =c("rows")) ##removes empty rows
 Cyclistic_rides<-remove_empty(Cyclistic_rides,which =c("cols")) ##removes empty columns
+skim(Cyclistic_rides)
 
 ##POSIXct is the time
 ##This converts the character data in the df into a date format
@@ -46,13 +48,12 @@ Cyclistic_ride_length<-Cyclistic_rides %>%
 
 Cyclistic_rides3<-Cyclistic_rides %>% 
   group_by(ymd,start_time,member_casual) %>%
-  summarise(
+  summarize(
     Average =mean(minutes),
     Median =median(minutes),
     Total= sum(minutes)
   )
   
-
 getwd()
 
 write.csv(Cyclistic_rides3,"/Users/briansam/Desktop/Data analysis/",row.names = FALSE)
