@@ -46,7 +46,7 @@ order by
 
 --how many international players are averaging 20 or more pts in the contemporary nba(past 5 years)?
 --shows that there have been 35 times where international players have averaged 20 or more pts, most of these players go on to fill out positions in all star games
---the most people 
+
 WITH rev_season as
 
 (SELECT
