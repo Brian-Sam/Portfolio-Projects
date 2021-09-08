@@ -1,3 +1,5 @@
+--NBA Players dataset by Justinas Cirtautas was found through Kaggle
+
 --shows the amount of international players in the nba up until 2020 (1864)
 SELECT DISTINCT 
     *
